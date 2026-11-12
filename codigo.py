@@ -1,3 +1,4 @@
+import os
 import pyautogui
 import time
 
@@ -15,9 +16,9 @@ time.sleep(6)
 
 pyautogui.click(x=707, y=403,)
 
-pyautogui.write("arthursaraiva27@gmail.com")
+pyautogui.write(os.environ["HASHTAG_EMAIL"])  # credenciais lidas de variáveis de ambiente
 pyautogui.press("tab") 
-pyautogui.write("@Ams566477")
+pyautogui.write(os.environ["HASHTAG_SENHA"])
 pyautogui.press("tab")
 pyautogui.press("enter")
 time.sleep(3)
