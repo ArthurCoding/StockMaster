@@ -1,107 +1,32 @@
-Automação de Estoque – Projeto inspirado no site do Lira (Hashtag Programação)
+# StockMaster – Cadastro automatizado de produtos (RPA em Python)
 
-Este projeto automatiza o controle de estoque de produtos usando Python.
-Ele lê a base de dados, identifica itens críticos, atualiza saldos e envia relatórios prontos para uso.
-É uma ferramenta prática para reduzir erros e acelerar a gestão de estoque.
+Automação que simula um usuário: abre o navegador, faz login em um sistema web de cadastro e registra, um a um, os produtos de uma planilha CSV (cerca de 290 itens), sem digitação manual.
 
-📌 Objetivo
+Projeto desenvolvido a partir do Intensivão de Python da Hashtag Programação.
 
-Automatizar processos manuais de estoque.
+## Como funciona
+1. Abre o navegador e acessa a página de login do sistema.
+2. Preenche e-mail e senha lidos de variáveis de ambiente (nada fica no código).
+3. Lê `produtos.csv` com Pandas.
+4. Para cada produto, preenche código, marca, tipo, categoria, preço, custo e observação e envia o formulário.
 
-Identificar produtos com quantidade baixa.
+## Tecnologias
+- Python 3
+- PyAutoGUI (automação de teclado e mouse)
+- Pandas (leitura e tratamento da planilha)
 
-Atualizar informações de entrada e saída.
+## Como executar
+```powershell
+pip install pyautogui pandas
+$env:HASHTAG_EMAIL="seu_email"
+$env:HASHTAG_SENHA="sua_senha"
+python codigo.py
+```
+As coordenadas de clique (`pyautogui.click`) dependem da resolução da tela. O script `auxiliar.py` mostra a posição do mouse para ajustá-las.
 
-Gerar relatórios rápidos e confiáveis.
-
-
-🛠 Tecnologias usadas
-
-Python 3.x
-
-Pandas
-
-OpenPyXL / CSV
-
-Jupyter ou VS Code
-
-Selenium (opcional, caso busque dados do site)
-
-
-
-🚀 Funcionalidades
-
-Leitura automática da planilha de estoque.
-
-Aplicação de entradas, saídas e correções.
-
-Detecção de itens abaixo do limite mínimo.
-
-Exportação de um relatório atualizado.
-
-(Opcional) Coleta de dados direto do site usando Selenium.
-
-
-
-
-
-▶️ Como executar
-
-Clone o repositório
-
-"git clone https://github.com/seu-user/seu-projeto.git "
-
-
-Instale as dependências
-
-"pip install -r requirements.txt"
-
-
-Execute o script principal
-
-python src/automacao.py
-
-📊 Exemplo de saída do relatório
-
-Lista de produtos com estoque crítico.
-
-Quantidade atualizada após movimentações.
-
-Produtos cadastrados com inconsistências.
-
-Arquivo final exportado como relatorio_estoque.xlsx
-
-
-
-📈 Fluxo da automação
-
-Carrega as planilhas.
-
-Limpa e organiza os dados.
-
-Aplica as movimentações do dia.
-
-Atualiza estoque final.
-
-Gera aviso de itens críticos.
-
-Exporta relatório.
-
-🧩 Personalização
-
-Você pode adaptar:
-
-Limite mínimo de estoque.
-
-Origem dos dados (Excel, CSV ou Web).
-
-Formato do relatório.
-
-Métodos de envio (e-mail, WhatsApp, dashboard).
-
-📘 Sobre o projeto
-Este projeto foi inspirado nas aulas do Lira da Hashtag Programação.
-Serve como estudo prático de automação, Python e manipulação de dados.
-
-
-
+## Arquivos
+| Arquivo | Função |
+|---|---|
+| `codigo.py` | Automação principal |
+| `auxiliar.py` | Captura a posição do mouse para calibrar os cliques |
+| `produtos.csv` | Base com os produtos a cadastrar |
